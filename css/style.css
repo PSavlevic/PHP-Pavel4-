@@ -1,66 +1,44 @@
-main {
+body {
+    background-image: url("http://vmgonline.lt/wp-content/uploads/2018/01/KEBABAS-BLOKELIS.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+table, tr, th, td {
+    border: 3px solid saddlebrown;
+    border-collapse: collapse;
+    padding: 3vh;
+}
+
+section {
+    margin: 10vh auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/62/12/5857a99b2149e4e.jpg");
+    width: 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
 }
 
-.input-div, .output-div {
-    flex: 1;
-    max-width: 50%;
-    padding: 20px;
-}
-
-.input-div {
-    background-color: lightblue;
-}
-
-.output-div {
-    background-color: lightyellow;
-}
-
-input, textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 30px;
-}
-
-textarea {
-    resize: vertical;
-    height: 200px;
+form select {
+    background-color: lightgrey;
+    color: saddlebrown;
+    padding: 1vh;
+    font-family: Arial;
 }
 
 input[type=submit] {
-    width: 25%;
-    text-align: center;
+    background-color: saddlebrown;
+    color: lightgrey;
+    border-radius: 5px;
+    padding: 1vh;
+    font-family: Arial;
 }
 
-div {
- text-align: center;
-}
-
-.output-div {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.output-div img {
-    max-width: 50%;
-    border-radius: 10px;
-}
-
-h2 {
-    color: blueviolet;
-    text-decoration: underline;
-}
-
-.transition-rotate {
-    position: relative;
-    z-index: 2;
-    transition: 3s linear;
-}
-.transition-rotate:hover {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+input[type=submit]:hover {
+    background-color: red;
+    color: white;
 }
