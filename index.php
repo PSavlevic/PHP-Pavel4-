@@ -3,10 +3,12 @@
 $kons = '';
 $pask = '';
 
+
+
 if (isset($_POST['send'])) {
     $vardas = $_POST['name'];
     $pavarde = $_POST['lname'];
-    $data = $_POST['date'];
+    $date = $_POST['date'];
         if (!isset($_POST["kons"])){
             $kons = "Nebuvo";
         } else {
@@ -20,9 +22,21 @@ if (isset($_POST['send'])) {
 } else {
     $vardas = 'nepateikta';
     $pavarde = 'nepateikta';
-    $data = 'nepateikta';
+    $date = 'nepateikta';
     $kons = 'nepateikta';
     $pask = 'nepateikta';
+}
+
+//DUOMENU IRASYMAS I .TXT FAILA
+if (isset($_POST['send'])) {
+//    SUKURIAMAS KINTAMASIS APJUNGIANTIS VISUS POST LAUKELIUS
+    $data = $_POST['name'] . ' ' . $_POST['lname'] . ' ' . $_POST['date'] . ' ' . $_POST['kons'] . ' ' . $_POST['pask'];
+//    NURODOMA .TXT FAILO VIETA IR KAS BUS JAME DAROMA
+    $fp = fopen('info.txt', 'a');
+//    IRASOMI DUOMENYS I NURODYTA .TXT FAILA
+    fwrite($fp, $data);
+//    UZDAROMAS FAILAS
+    fclose($fp);
 }
 
 ?>
@@ -56,7 +70,7 @@ if (isset($_POST['send'])) {
         <tr>
             <td><?php print $vardas; ?></td>
             <td><?php print $pavarde; ?></td>
-            <td><?php print $data; ?></td>
+            <td><?php print $date; ?></td>
             <td><?php print $kons; ?></td>
             <td><?php print $pask; ?></td>
         </tr>
