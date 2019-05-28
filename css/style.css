@@ -1,44 +1,27 @@
-body {
-    background-image: url("http://vmgonline.lt/wp-content/uploads/2018/01/KEBABAS-BLOKELIS.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.container {
+    width: 1000px;
+    margin: 0 auto;
 }
 
-table, tr, th, td {
-    border: 3px solid saddlebrown;
+table {
+    width: 100%;
+    margin-top: 50px;
+}
+
+table, tr, td {
+    border: 1px solid black;
     border-collapse: collapse;
-    padding: 3vh;
+    padding: 10px;
 }
 
-section {
-    margin: 10vh auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/62/12/5857a99b2149e4e.jpg");
-    width: 90%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 5px;
-}
+@media only screen and (max-width: 700px) {
+    .container {
+        max-width: 700px;
+    }
 
-form select {
-    background-color: lightgrey;
-    color: saddlebrown;
-    padding: 1vh;
-    font-family: Arial;
-}
-
-input[type=submit] {
-    background-color: saddlebrown;
-    color: lightgrey;
-    border-radius: 5px;
-    padding: 1vh;
-    font-family: Arial;
-}
-
-input[type=submit]:hover {
-    background-color: red;
-    color: white;
+    input {
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
 }

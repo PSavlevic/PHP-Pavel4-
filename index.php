@@ -1,107 +1,66 @@
 <?php
 
-$pasiula = [
-    'kebabines' => [
-        'Jammi',
-        'Wraperia Suppa Kebs',
-        'Sinano kebabai',
-    ],
-    'tipas' => [
-        'kebabas_lavase',
-        'kebabas_pitoje',
-        'kebabas_leksteje',
-    ],
-    'dydis' => [
-        'didelis',
-        'mazas',
-        'kovotojo',
-    ],
-    'padazas' => [
-        'cesnakinis',
-        'svelnus',
-        'cipotle',
-        'astrus',
-    ],
-    'mesa' => [
-        'jautiena',
-        'vistiena',
-    ],
-];
+$kons = '';
+$pask = '';
 
-if (!empty($_POST['kebabines']) && ($_POST['tipas']) && ($_POST['dydis']) && ($_POST['padazas']) && ($_POST['mesa'])) {
-    $kebabines = $pasiula['kebabines'][$_POST['kebabines']];
-    $tipas = $pasiula['tipas'][$_POST['tipas']];
-    $dydis = $pasiula['dydis'][$_POST['dydis']];
-    $padazas = $pasiula['padazas'][$_POST['padazas']];
-    $mesa = $pasiula['mesa'][$_POST['mesa']];
+if (isset($_POST['send'])) {
+    $vardas = $_POST['name'];
+    $pavarde = $_POST['lname'];
+    $data = $_POST['date'];
+        if (!isset($_POST["kons"])){
+            $kons = "Nebuvo";
+        } else {
+            $kons = "Buvo";
+        }
+    if (!isset($_POST['pask'])) {
+        $pask = "Nebuvo";
+    } else {
+        $pask = "Buvo";
+    }
 } else {
-    $kebabines = 'nepasirinkta';
-    $tipas = 'nepasirinkta';
-    $dydis = 'nepasirinkta';
-    $padazas = 'nepasirinkta';
-    $mesa = 'nepasirinkta';
+    $vardas = 'nepateikta';
+    $pavarde = 'nepateikta';
+    $data = 'nepateikta';
+    $kons = 'nepateikta';
+    $pask = 'nepateikta';
 }
 
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kebabai</title>
-        <link rel="stylesheet" type="text/css" href="css/normalise.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <section>
-            <form method="post">
-                <?php foreach ($pasiula as $key => $pasirinkimai): ?>
-                    <select name="<?php print $key; ?>">
-                        <?php foreach ($pasirinkimai as $key => $kebabine): ?>
-                            <option value="<?php print $key; ?>">
-                                <?php print $kebabine; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                <?php endforeach; ?>
-                <input type="submit" value="uzsakyti">
-            </form>
-            <table>
-                <tr>
-                    <th>
-                        Kebabine:
-                    </th>
-                    <th>
-                        Kebabo tipas:
-                    </th>
-                    <th>
-                        Kebabo dydis:
-                    </th>
-                    <th>
-                        Kebabo padazas:
-                    </th>
-                    <th>
-                        Mesa:
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <?php print $kebabines; ?>
-                    </td>
-                    <td>
-                        <?php print $tipas; ?>
-                    </td>
-                    <td>
-                        <?php print $dydis; ?>
-                    </td>
-                    <td>
-                        <?php print $padazas; ?>
-                    </td>
-                    <td>
-                        <?php print $mesa; ?>
-                    </td>
-                </tr>
-            </table>
-        </section>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <form method="POST">
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="LastName" name="lname">
+        <input type="date" placeholder="Date" name="date">
+        <input type="checkbox" name="kons"> Kons
+        <input type="checkbox" name="pask"> Pask
+        <input type="submit" value="siusti" name="send">
+    </form>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>LastName</td>
+            <td>Date</td>
+            <td>Kons</td>
+            <td>Pask</td>
+        </tr>
+        <tr>
+            <td><?php print $vardas; ?></td>
+            <td><?php print $pavarde; ?></td>
+            <td><?php print $data; ?></td>
+            <td><?php print $kons; ?></td>
+            <td><?php print $pask; ?></td>
+        </tr>
+    </table>
+</div>
+</body>
 </html>
