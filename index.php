@@ -9,6 +9,7 @@ if (isset($_POST['send'])) {
     $vardas = $_POST['name'];
     $mail = $_POST['mail'];
     $tel = $_POST['tel'];
+    
 } else {
     $vardas = 'nepateikta';
     $mail = 'nepateikta';
